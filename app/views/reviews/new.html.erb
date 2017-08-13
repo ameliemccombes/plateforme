@@ -1,0 +1,9 @@
+<h1>Ajoutez une review pour le jardin <%= @garden.name %></h1>
+
+<%= form_for [@garden, @review] do |f| %>
+
+
+
+  <%= f.text_field :content %>
+  <%= f.submit %>
+<% end %>

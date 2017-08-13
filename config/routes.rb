@@ -1,17 +1,11 @@
 Rails.application.routes.draw do
-  get 'gardens/show'
+  resources :gardens do
+    resources :reviews, only: [:new, :create]
+  end
 
-  get 'gardens/new'
-
-  get 'gardens/create'
-
-  get 'gardens/edit'
-
-  get 'gardens/update'
-
-  get 'gardens/destroy'
-
-  get 'gardens/index'
+  # namespace :admin do
+  #   resources :gardens, only: [:index]
+  # end
 
   get 'about' => "pages#about"
 

@@ -1,5 +1,11 @@
 <h1>Les jardins disponibles</h1>
 
 <% @gardens.each do |garden| %>
-  <%= garden %>
+  <h2><%= garden.name %></h2>
+  <p><%= garden.description %></p>
+  <span>Ville : <%= garden.city %></span>
+  <span>Prix : <%= garden.price %> €/j</span>
+  <%= link_to "Détails", garden_path(garden) %>
+  <%= link_to "Editer", edit_garden_path(garden) %>
+  <%= link_to "Supprimer", garden_path(garden), method: :delete %>
 <% end %>

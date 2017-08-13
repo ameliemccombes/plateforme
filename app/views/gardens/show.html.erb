@@ -1,2 +1,13 @@
-<h1>Gardens#show</h1>
-<p>Find me in app/views/gardens/show.html.erb</p>
+<h2><%= @garden.name %></h2>
+<p><%= @garden.description %></p>
+<span>Ville : <%= @garden.city %></span>
+<span>Prix : <%= @garden.price %> €/j</span>
+
+<ul>
+  <% @garden.reviews.each do |review| %>
+    <li><%= review.content %></li>
+  <% end %>
+</ul>
+
+<%= link_to "Retour à la liste", gardens_path %>
+<%= link_to "Ajouter une review", new_garden_review_path(@garden) %>
