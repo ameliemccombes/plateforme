@@ -1,26 +1,19 @@
-<h1>Gardens#new</h1>
-<p>Créez un nouveau jardin</p>
+<div class="container">
+  <div class="row">
+    <div class="col-xs-10 col-xs-offset-1 col-md-6 col-md-offset-3">
+      <h1>Gardens#new</h1>
+      <p>Créez un nouveau jardin</p>
 
-<%= form_for(@garden) do |f| %>
+      <%= simple_form_for @garden do |f| %>
+        <%= f.input :name %>
+        <%= f.input :description %>
+        <%= f.input :city %>
+        <%= f.input :capacity %>
+        <%= f.input :price %>
+        <%= f.input :description %>
 
-  <% if @garden.errors.any? %>
-    <ul>
-      <% @garden.errors.full_messages.each do |message| %>
-      <li><%= message %></li>
-    </ul>
-  <% end %>
-
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-
-  <%= f.label :description %>
-  <%= f.text_field :description %>
-
-  <%= f.label :city %>
-  <%= f.text_field :city %>
-
-  <%= f.label :city %>
-  <%= f.number_field :capacity %>
-
-  <%= f.submit %>
-<% end %>
+        <%= f.submit "Enregistrer", class: "btn btn-primary" %>
+      <% end %>
+    </div>
+  </div>
+</div>

@@ -1,11 +1,31 @@
-<h1>Les jardins disponibles</h1>
+<div class="index-container">
 
-<% @gardens.each do |garden| %>
-  <h2><%= garden.name %></h2>
-  <p><%= garden.description %></p>
-  <span>Ville : <%= garden.city %></span>
-  <span>Prix : <%= garden.price %> €/j</span>
-  <%= link_to "Détails", garden_path(garden) %>
-  <%= link_to "Editer", edit_garden_path(garden) %>
-  <%= link_to "Supprimer", garden_path(garden), method: :delete %>
-<% end %>
+  <div class="cards-container">
+    <h1>Les jardins disponibles</h1>
+    <% @gardens.each do |garden| %>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to garden_path(garden, request.query_parameters) do %>
+          <div class="card-index">
+            <div class="card-title">
+              <h6><%= garden.name %></h6>
+              <span>Ville : <%= garden.city %></span>
+            </div>
+            <div class="card-capacity">
+              <span>Ville : <%= garden.capacity %></span>
+            </div>
+            <div class="card-price">
+              <span>Prix : <%= garden.price %> €/j</span>
+            </div>
+          </div>
+          <%= link_to "Détails", garden_path(garden) %>
+          <%= link_to "Editer", edit_garden_path(garden) %>
+          <%= link_to "Supprimer", garden_path(garden), method: :delete %>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+
+  <div class="map-container">
+
+  </div>
+</div>

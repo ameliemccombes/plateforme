@@ -1,0 +1,21 @@
+<h1>Bookings#new</h1>
+<p>Récapitulatif de la réservation souhaitée</p>
+
+<h4>Dates de réservation</h4>
+<p>Date de réservation</p>
+<p> <%= @booking.date_check_in %> </p>
+
+<h4>Le jardin</h4>
+<p>Nom :</p>
+<p> <%= @garden.name %> </p>
+<p>Ville :</p>
+<p> <%= @garden.city %> </p>
+<p>Capacité :</p>
+<p> <%= @garden.capacity %> </p>
+
+<div id="btn">
+  <%= simple_form_for [@garden, @booking] do |f| %>
+  <%= f.input :date_check_in, as: :hidden %>
+  <%= f.submit "Confirmer", class: "btn btn-primary" %>
+  <% end %>
+</div>

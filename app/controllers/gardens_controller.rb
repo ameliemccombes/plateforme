@@ -1,8 +1,13 @@
 class GardensController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show]
   before_action :set_garden, only: [:show, :edit, :update, :destroy]
 
   def index
-    @gardens = Garden.all
+    if params[:city] != ""
+      @gardens = Garden.where(city: params[:city])
+    else
+      @gardens = Garden.all
+    end
   end
 
   def show

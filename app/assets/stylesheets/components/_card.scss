@@ -1,0 +1,21 @@
+.card-index {
+  background-color: rgb(140, 125, 101);
+  position: relative;
+  height: 200px;
+  width: 100%;
+}
+.card-title {
+  position: absolute;
+  left: 10px;
+  top: 10px;
+}
+.card-capacity {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+}
+.card-price {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
